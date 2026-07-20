@@ -1,5 +1,4 @@
 import streamlit as st
-import polars as pl
 import plotly.express as px
 from cache_data import load_data
 import streamlit as st
