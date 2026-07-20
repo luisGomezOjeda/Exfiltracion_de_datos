@@ -113,6 +113,12 @@ st.write("Un ataque desde fuera de la organización ocurre cuando una persona o 
 st.write("La etapa previa de la exfiltración consiste en que el software malicioso o atacante accede a las credenciales de administrador o utiliza vulnerabilidades para moverse libremente por la red (estos comportamientos atípicos entre la red interna y la red externa se pueden registrar mediante herramientas de monitoreo de la red).")
 
 st.divider()
+st.markdown('''
+<div style='display: flex; justify-content: center;'>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/WOnRP5xXekE?si=srcpiaHcVKSjI1HA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</div>       
+            ''', unsafe_allow_html=True)
+st.divider()
 
 # --- SECCIÓN 2: DATASET ---
 st.markdown("<a id='dataset'></a>", unsafe_allow_html=True)
@@ -304,24 +310,23 @@ Para determinar el umbral de decición decidí utilizar el metodo de presición-
         ''')
 
 st.plotly_chart(fig_racall, use_container_width=True)
-st.text('Priorizando una alta sensibilidad (recall), es decir, la capacidad del modelo para identificar correctamente la mayor cantidad posible de tráfico malicioso, seleccioné un umbral de decisión de 0,55 para el tercer modelo. Con este umbral, el modelo alcanza una sensibilidad del 92 %, lo que significa que identifica correctamente el 92 % de las instancias de tráfico malicioso, reduciendo la cantidad de falsos negativos y mejorando su capacidad de detección. No obstante, con este umbral el modelo obtiene una precisión del 55 %, lo que implica que aproximadamente el 55 % de las alertas generadas corresponden efectivamente a tráfico malicioso, mientras que el porcentaje restante corresponde a falsos positivos. Esta configuración prioriza la detección de amenazas por sobre la reducción de falsas alarmas, una estrategia adecuada en sistemas de detección de intrusiones donde resulta más costoso no detectar un ataque que generar una alerta adicional.')
+st.text('Priorizando una alta sensibilidad (recall), es decir, la capacidad del modelo para identificar correctamente la mayor cantidad posible de tráfico malicioso, seleccioné un umbral de decisión de 0,5 para el tercer modelo. Con este umbral, el modelo alcanza una sensibilidad del 92 %, lo que significa que identifica correctamente el 92 % de las instancias de tráfico malicioso, reduciendo la cantidad de falsos negativos y mejorando su capacidad de detección. No obstante, con este umbral el modelo obtiene una precisión del 55 %, lo que implica que aproximadamente el 55 % de las alertas generadas corresponden efectivamente a tráfico malicioso, mientras que el porcentaje restante corresponde a falsos positivos. Esta configuración prioriza la detección de amenazas por sobre la reducción de falsas alarmas, una estrategia adecuada en sistemas de detección de intrusiones donde resulta más costoso no detectar un ataque que generar una alerta adicional.')
 st.markdown("<h4 style='text-align: center;'>Modelo Final (Regresión Logística)</h4>", unsafe_allow_html=True)
 
 st.markdown('''
 <p style="text-align: center;">
 ========== MÉTRICAS DE ENTRENAMIENTO (TRAIN) ==========<br>
-Precisión: 0.5395. De lo clasificado como maligno, el 53.95% lo es realmente.<br>
-Sensibilidad: 0.8983. Detectó el 89.83% de los malignos reales.<br>
-F1-Score: 67.42%<br>
+Precisión: 0.5361. De lo clasificado como maligno, el 53.61% lo es realmente.<br>
+Sensibilidad: 0.9207. Detectó el 92.07% de los malignos reales.<br>
+F1-Score: 67.76%<br>
 ========== MÉTRICAS DE EVALUACIÓN (TEST) ==========<br>
-Precisión: 0.5391. De lo clasificado como maligno, el 53.91% lo es realmente.<br>
-Sensibilidad: 0.8981. Detectó el 89.81% de los malignos reales.<br>
-F1-Score: 67.38%<br>
+Precisión: 0.5378. De lo clasificado como maligno, el 53.78% lo es realmente.<br>
+Sensibilidad: 0.9204. Detectó el 92.04% de los malignos reales.<br>
+F1-Score: 67.89%<br>
 Iteraciones completadas: 1000<br>
-</p>
-            
+</p>        
             ''',unsafe_allow_html=True)
-centrar_imagen(datos_cargados_png['regression_final'])
+centrar_imagen(datos_cargados_png['regression3'])
 st.markdown("<h3 style='text-align: center;'>Árbol de Decisión</h3>", unsafe_allow_html=True)
 st.write('''
 Para el entrenamiento y optimización del modelo de árbol de decisión se utilizó la herramienta GridSearchCV de la biblioteca Scikit-learn, la cual permite evaluar múltiples combinaciones de hiperparámetros mediante validación cruzada y seleccionar automáticamente la configuración con mejor desempeño.
