@@ -204,7 +204,7 @@ st.write("Por contexto y poca variación puedo descartar las siguientes variable
 st.markdown("- SYN Flag Count\n- FIN Flag Count\n- CWE Flag Count\n- Fwd URG Flags\n- URG Flag Count")
 
 st.dataframe(datos_cargados_csv['label_distribution_reduce'], use_container_width=True)
-st.write("Mapeo el dataSet destinado para las pruebas estadísticas y verifico que efectivamente se mantiene la distribución 90,20 del atributo Label del conjunto original.")
+st.write("Mapeo el dataSet destinado para las pruebas estadísticas y verifico que efectivamente se mantiene la distribución 80,20 del atributo Label del conjunto original.")
 
 st.markdown("<h3 style='text-align: center;'>Medición estadística sobre variables continuas</h3>", unsafe_allow_html=True)
 st.write("Mutual_info_clasiffic es una métrica de evaluación estadística que mide la información mutua entre cada variable predictora y la variable objetivo (discreta/categórica) o la disminución de la entropía que aporta cada variable")
@@ -290,7 +290,7 @@ centrar_imagen(datos_cargados_png['regression3'])
 
 st.markdown('''
 <p style="text-align: center;">
-Al comparar los resultados d"el conjunto de entrenamiento y del conjunto de  
+Al comparar los resultados del conjunto de entrenamiento y del conjunto de  
 prueba, observé que las métricas eran muy similares. Esto indica que los  
 modelos no presentan sobreajuste (overfitting) y que la regularización  
 aplicada por la regresión logística fue suficiente para lograr una buena  
